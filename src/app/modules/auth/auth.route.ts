@@ -1,18 +1,18 @@
 import express from 'express';
+import validateRequest from '../../middlewares/validateRequest';
 import { AuthController } from './auth.controller';
+import { AuthValidation } from './auth.validation';
 const router = express.Router();
 
 router.post(
   '/sign-up',
-  // validateRequest(AcademicDepartmentValidation.create),
-  // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  validateRequest(AuthValidation.signUp),
   AuthController.signUp
 );
 
 router.post(
   '/login',
-  // validateRequest(AcademicDepartmentValidation.create),
-  // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  validateRequest(AuthValidation.login),
   AuthController.login
 );
 
