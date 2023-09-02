@@ -15,6 +15,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req: Request, res: Response) => {
+  res.send('Book catalog backend');
+});
+
 app.use('/api/v1', routes);
 
 //global error handler
