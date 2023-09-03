@@ -1,21 +1,37 @@
-# University Management Core Service
+# Book Catalog Backend
 
-## Resources
+## Live link: https://book-catalog-backend-sql-silk.vercel.app
 
-### Stater Repository: 
-[University Management Core Service Starter](https://github.com/Apollo-Level2-Web-Dev/university-management-core-service-starter)
+## API Routes:
 
-### ER Diagram
-- [Module 35: ER Diagram](https://i.ibb.co/Ln2FttV/university-management-core-service-module-1.png)
+## User Routes
 
-- [Module-36: ER Diagram](https://i.ibb.co/tJ4nt6T/Screenshot-2023-08-20-at-7-32-11-PM.png)
+- `/api/v1/auth/signup` (POST)
+- `/api/v1/users` (GET)
+- `/api/v1/users/cac1238c-e1de-483a-aaa2-28a2edc46353` (Single GET)
+- `/api/v1/users/cac1238c-e1de-483a-aaa2-28a2edc46353` (PATCH)
+- `/api/v1/users/cac1238c-e1de-483a-aaa2-28a2edc46353` (DELETE)
+- `/api/v1/profile` (GET)
 
-- [Module-37: ER Diagram](https://i.ibb.co/DV7Jwd8/university-management-core-service-Page-2-drawio.png)
+## Category Routes
 
-- [Module-38: ER Diagram](https://i.ibb.co/B2JhHD3/module-38.png)
+- `/api/v1/categories/create-category` (POST)
+- `/api/v1/categories` (GET)
+- `/api/v1/categories/1a814233-69c3-456e-930b-1779f722af60` (Single GET)
+- `/api/v1/categories/1a814233-69c3-456e-930b-1779f722af60` (PATCH)
+- `/api/v1/categories/1a814233-69c3-456e-930b-1779f722af60` (DELETE)
 
-- [Module-39: ER Diagram](https://i.ibb.co/VgG8RcZ/university-management-core-service-Page-1-drawio.png)
+## Books Routes
 
-- **You can generate an ERD with Prisma schema using the website: https://prismaliser.app/**
-- [API Documentation](https://documenter.getpostman.com/view/26694209/2s9Xy5NrFU)
+- `/api/v1/books/create-book` (POST)
+- `/api/v1/books` (GET)
+- `/api/v1/books/1a814233-69c3-456e-930b-1779f722af60/category` (GET)
+- `/api/v1/books/3247df83-6365-4958-a9ee-88f2b3d6ec95` (GET)
+- `/api/v1/books/3247df83-6365-4958-a9ee-88f2b3d6ec95` (PATCH)
+- `/api/v1/books/3247df83-6365-4958-a9ee-88f2b3d6ec95` (DELETE)
 
+## Orders Routes
+
+- `/api/v1/orders/create-order` (POST)
+- `/api/v1/orders` (GET)
+- `/api/v1/orders/a32096db-cc70-4d26-97e7-72dbc69cda2e` (GET)

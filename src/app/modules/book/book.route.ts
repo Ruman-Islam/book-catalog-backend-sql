@@ -13,7 +13,7 @@ router.get('/:id', BookController.getSingleBook);
 router.get('/:categoryId/category', BookController.getSingleCategoryBooks);
 
 router.post(
-  '/',
+  '/create-book',
   auth(ENUM_USER_ROLE.ADMIN),
   validateRequest(BookValidation.create),
   BookController.createBook
