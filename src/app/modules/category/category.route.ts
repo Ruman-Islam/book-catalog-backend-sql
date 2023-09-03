@@ -12,7 +12,7 @@ router.get('/', CategoryController.getAllCategories);
 router.get('/:id', CategoryController.getSingleCategory);
 
 router.post(
-  '/create-category',
+  '/',
   auth(ENUM_USER_ROLE.ADMIN),
   validateRequest(CategoryValidation.createCategoryValidation),
   CategoryController.createCategory
