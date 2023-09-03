@@ -26,16 +26,16 @@ const getAllCategories: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
-// const getSingleCategory: RequestHandler = catchAsync(async (req, res) => {
-//   const result = await CategoryService.getSingleCategory(req.params.id);
+const getSingleCategory: RequestHandler = catchAsync(async (req, res) => {
+  const result = await CategoryService.getSingleCategory(req.params.id);
 
-//   sendResponse(res, {
-//     success: true,
-//     statusCode: httpStatus.OK,
-//     message: 'Category retrived successfully',
-//     data: result,
-//   });
-// });
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Category retrieved successfully',
+    data: result,
+  });
+});
 
 const updateCategory: RequestHandler = catchAsync(async (req, res) => {
   const { id } = req.params;
@@ -65,7 +65,7 @@ const deleteCategory: RequestHandler = catchAsync(async (req, res) => {
 export const CategoryController = {
   createCategory,
   getAllCategories,
-//   getSingleCategory,
+  getSingleCategory,
   updateCategory,
   deleteCategory,
 };
