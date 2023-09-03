@@ -91,7 +91,79 @@ const getAllBooks = async (
   };
 };
 
+const getSingleCategoryBooks = async (
+  categoryId: string,
+  options: IPaginationOptions
+): Promise<IGenericResponse<Book[] | null>> => {
+  const { page, limit, skip } = paginationHelpers.calculatePagination(options);
+
+  const result = await prisma.book.findMany({
+    where: {
+      categoryId,
+    },
+    skip,
+    take: limit,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? {
+            [options.sortBy]: options.sortOrder,
+          }
+        : {
+            createdAt: 'desc',
+          },
+  });
+
+  const total = await prisma.book.count();
+
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
+};
+
+const getSingleBook = async (id: string): Promise<Book | null> => {
+  const result = await prisma.book.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return result;
+};
+
+const updateBook = async (
+  id: string,
+  payload: Partial<Book>
+): Promise<Book | null> => {
+  const result = await prisma.book.update({
+    where: {
+      id,
+    },
+    data: payload,
+  });
+
+  return result;
+};
+
+const deleteBook = async (id: string): Promise<Book | null> => {
+  const result = await prisma.book.delete({
+    where: {
+      id,
+    },
+  });
+
+  return result;
+};
+
 export const BookService = {
   createBook,
   getAllBooks,
+  getSingleCategoryBooks,
+  getSingleBook,
+  updateBook,
+  deleteBook,
 };

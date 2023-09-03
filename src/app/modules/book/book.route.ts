@@ -8,7 +8,9 @@ const router = express.Router();
 
 router.get('/', BookController.getAllBooks);
 
-// router.get('/:id', CategoryController.getSingleCategory);
+router.get('/:id', BookController.getSingleBook);
+
+router.get('/:categoryId/category', BookController.getSingleCategoryBooks);
 
 router.post(
   '/',
@@ -17,17 +19,13 @@ router.post(
   BookController.createBook
 );
 
-// router.patch(
-//   '/:id',
-//   auth(ENUM_USER_ROLE.ADMIN),
-//   validateRequest(CategoryValidation.updateCategoryValidation),
-//   CategoryController.updateCategory
-// );
+router.patch(
+  '/:id',
+  auth(ENUM_USER_ROLE.ADMIN),
+  validateRequest(BookValidation.update),
+  BookController.updateBook
+);
 
-// router.delete(
-//   '/:id',
-//   auth(ENUM_USER_ROLE.ADMIN),
-//   CategoryController.deleteCategory
-// );
+router.delete('/:id', auth(ENUM_USER_ROLE.ADMIN), BookController.deleteBook);
 
 export const BookRoutes = router;
