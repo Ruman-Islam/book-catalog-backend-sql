@@ -2,11 +2,15 @@
 
 ## Live link: https://book-catalog-backend-sql-silk.vercel.app
 
+## Note: protected route must be signed in either sign in or create account
+## email: `rumanislam0429@gmail.com` pass: `ruman@123`
+
 ## API Routes:
 
 ## User Routes
 
 - `/api/v1/auth/signup` (POST)
+- `/api/v1/auth/signin` (POST)
 - `/api/v1/users` (GET)
 - `/api/v1/users/cac1238c-e1de-483a-aaa2-28a2edc46353` (Single GET)
 - `/api/v1/users/cac1238c-e1de-483a-aaa2-28a2edc46353` (PATCH)

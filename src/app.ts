@@ -21,8 +21,6 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/api/v1', routes);
 
-//global error handler
-app.use(globalErrorHandler);
 
 //handle not found
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -38,5 +36,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   });
   next();
 });
+
+//global error handler
+app.use(globalErrorHandler);
 
 export default app;
